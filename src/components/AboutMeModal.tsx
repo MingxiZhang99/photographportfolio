@@ -164,7 +164,7 @@ export const AboutMeModal: React.FC<AboutMeModalProps> = ({
               <div
                 className="font-sans font-black uppercase text-[#FFFFFF] tracking-[-0.02em] leading-[0.82]"
                 style={{
-                  fontSize: '56px',
+                  fontSize: '54px',
                   WebkitTextStroke: '1.5px #07090E',
                   textShadow: roofShadow,
                 }}
@@ -173,13 +173,13 @@ export const AboutMeModal: React.FC<AboutMeModalProps> = ({
                   className="wall-emerge-roof"
                   style={{ animationDelay: '110ms' }}
                 >
-                  VISUAL
+                  MINGXI
                 </div>
                 <div
                   className="tracking-[0.04em] wall-emerge-roof"
                   style={{ animationDelay: '210ms' }}
                 >
-                  ARTIST
+                  ZHANG
                 </div>
               </div>
             </div>
@@ -189,82 +189,93 @@ export const AboutMeModal: React.FC<AboutMeModalProps> = ({
                 紧贴中央肖像与中脊左侧折线 (x = 0)
                -------------------------------------------------------------- */}
             <div
-              className="absolute right-full top-0 flex flex-col items-end text-right pr-[5px] select-none pointer-events-none"
+              className="absolute right-full top-0 flex flex-col items-end text-right pr-[5px] select-none pointer-events-none whitespace-nowrap"
               style={{
-                width: 330,
+                width: 440,
                 transformOrigin: 'right top',
                 transform: 'skewY(-30deg) scaleX(0.88)',
               }}
             >
-              {/* Row 1: 纯白 3D 立体巨字（第 2 批先锋：310ms） */}
+              {/* Row 1: 纯白 3D 立体巨字（核心领域缩写：CV·ML） */}
               <div
                 className="font-sans font-black uppercase text-[#FFFFFF] leading-[0.84] tracking-[-0.04em] wall-emerge-left"
                 style={{
                   animationDelay: '310ms',
-                  fontSize: '88px',
+                  fontSize: '80px',
                   WebkitTextStroke: '1.8px #07090E',
                   textShadow: leftWhiteShadow,
                 }}
               >
-                LI
+                CV·ML
               </div>
 
-              {/* Row 2: 青绿 3D 立体巨字（第 3 批左侧灵魂主词：670ms） */}
+              {/* Row 2: 青绿 3D 立体主词（VISION） */}
               <div
-                className="font-sans font-black uppercase text-[#2DD4BF] leading-[0.84] tracking-[-0.04em] wall-emerge-left"
+                className="font-sans font-black uppercase text-[#2DD4BF] leading-[0.86] tracking-[-0.03em] wall-emerge-left"
                 style={{
                   animationDelay: '670ms',
-                  fontSize: '88px',
+                  fontSize: '64px',
                   WebkitTextStroke: '1.8px #051F1D',
                   textShadow: leftTealShadow,
                 }}
               >
-                FRA
+                VISION
               </div>
 
-              {/* Row 3 & 4: 纯白紧凑关键词（第 4 批左右交替浮现：890ms & 1110ms） */}
+              {/* Rows 3, 4, 5: 高度概括的核心视觉与机器学习技能关键词 */}
               <div
-                className="font-sans font-black uppercase text-[#FFFFFF] leading-[0.94] tracking-[-0.02em] mt-[3px] wall-emerge-left"
+                className="font-sans font-black uppercase text-[#FFFFFF] leading-[1.02] tracking-[-0.01em] mt-[3px] wall-emerge-left"
                 style={{
-                  animationDelay: '890ms',
-                  fontSize: '36px',
-                  WebkitTextStroke: '1.2px #07090E',
+                  animationDelay: '860ms',
+                  fontSize: '28px',
+                  WebkitTextStroke: '1.1px #07090E',
                   textShadow: build3DWallTextShadow('#080A0F', -0.8, 1.1, 6),
                 }}
               >
-                HUMAN·
+                COMPUTER VISION·
               </div>
               <div
-                className="font-sans font-black uppercase text-[#FFFFFF] leading-[0.94] tracking-[-0.02em] wall-emerge-left"
+                className="font-sans font-black uppercase text-[#FFFFFF] leading-[1.02] tracking-[-0.01em] wall-emerge-left"
                 style={{
-                  animationDelay: '1110ms',
-                  fontSize: '36px',
-                  WebkitTextStroke: '1.2px #07090E',
+                  animationDelay: '1020ms',
+                  fontSize: '28px',
+                  WebkitTextStroke: '1.1px #07090E',
                   textShadow: build3DWallTextShadow('#080A0F', -0.8, 1.1, 6),
                 }}
               >
-                ANIMAL·
+                IMAGE ANALYSIS·
+              </div>
+              <div
+                className="font-sans font-black uppercase text-[#2DD4BF] leading-[1.02] tracking-[-0.01em] wall-emerge-left"
+                style={{
+                  animationDelay: '1180ms',
+                  fontSize: '28px',
+                  WebkitTextStroke: '1.1px #051F1D',
+                  textShadow: build3DWallTextShadow('#062825', -0.8, 1.1, 6),
+                }}
+              >
+                DEEP LEARNING·
               </div>
 
-              {/* Row 5: 青绿 3D 立体大字（第 5 批底座左翼：1330ms） */}
+              {/* Row 6: 青绿 3D 立体底座核心语言（C++·PY） */}
               <div
                 className="font-sans font-black uppercase text-[#2DD4BF] leading-[0.84] tracking-[-0.04em] mt-[3px] wall-emerge-left"
                 style={{
                   animationDelay: '1330ms',
-                  fontSize: '84px',
+                  fontSize: '74px',
                   WebkitTextStroke: '1.8px #051F1D',
                   textShadow: leftTealShadow,
                 }}
               >
-                RAW.
+                C++·PY
               </div>
             </div>
 
             {/* --------------------------------------------------------------
                 平面 2：中央下倾主折面 (Center Spine `\`, skewY(30deg))
-                - 顶部为 "GHT" 立体字（逐字阶梯浮现）
-                - 正中间嵌入【我的照片 (3D Isometric Portrait Frame)】（第 1 批 0ms 率先破雾浮现）
-                - 底部为 "2026" 立体字（逐字阶梯浮现）
+                - 顶部为 "AI·" 立体字
+                - 正中间嵌入【个人肖像 (3D Isometric Portrait Frame)】
+                - 底部为 "CUDA" 立体字
                -------------------------------------------------------------- */}
             <div
               className="absolute left-0 top-0 flex flex-col items-stretch select-none"
@@ -274,7 +285,7 @@ export const AboutMeModal: React.FC<AboutMeModalProps> = ({
                 transform: 'skewY(30deg)',
               }}
             >
-              {/* 中脊顶部：与左翼 "LI"、右翼 "LAB" 拼合为 "LI-GHT-LAB"（第 2 批逐字浮现：390ms / 445ms / 500ms） */}
+              {/* 中脊顶部：与左翼 "CV·ML"、右翼 "3D·XR" 呼应的 "A I ·" */}
               <div
                 className="font-sans font-black uppercase text-[#D5DCDD] leading-[0.84] tracking-[0.01em] flex justify-between px-[3px] pointer-events-none"
                 style={{
@@ -287,24 +298,24 @@ export const AboutMeModal: React.FC<AboutMeModalProps> = ({
                   className="inline-block wall-emerge-spine"
                   style={{ animationDelay: '390ms' }}
                 >
-                  G
+                  A
                 </span>
                 <span
                   className="inline-block wall-emerge-spine"
                   style={{ animationDelay: '445ms' }}
                 >
-                  H
+                  I
                 </span>
                 <span
                   className="inline-block wall-emerge-spine"
                   style={{ animationDelay: '500ms' }}
                 >
-                  T
+                  ·
                 </span>
               </div>
 
               {/* ============================================================
-                  文字墙正中间：3D 立体个人肖像相框 (第 1 批核心：0ms 率先对焦浮现)
+                   文字墙正中间：3D 立体个人肖像相框 (第 1 批核心：0ms 率先对焦浮现)
                  ============================================================ */}
               <div
                 className="relative my-[6px] mx-[4px] group pointer-events-auto wall-emerge-portrait"
@@ -341,7 +352,7 @@ export const AboutMeModal: React.FC<AboutMeModalProps> = ({
                 >
                   <img
                     src={portraitSrc}
-                    alt="Photographer Portrait"
+                    alt="Mingxi Zhang Portrait"
                     referrerPolicy="no-referrer"
                     className="w-full h-full object-cover object-center contrast-115 saturate-90 group-hover:scale-105 transition-transform duration-300"
                   />
@@ -358,7 +369,7 @@ export const AboutMeModal: React.FC<AboutMeModalProps> = ({
                   {/* 底部极简英文身份微标 + 悬停替换照片提示 */}
                   <div className="absolute bottom-1.5 inset-x-2.5 flex items-center justify-between text-[10px] font-mono-tabular tracking-[0.18em] text-white uppercase">
                     <span className="text-[#2DD4BF] font-bold">
-                      SELF // PORTRAIT
+                      MINGXI // ZHANG
                     </span>
                     <span className="flex items-center gap-1 bg-black/70 px-1.5 py-0.5 rounded text-[9px] text-white/90 opacity-85 group-hover:opacity-100 group-hover:text-[#2DD4BF] transition-opacity">
                       <Camera className="w-2.5 h-2.5" />
@@ -368,11 +379,11 @@ export const AboutMeModal: React.FC<AboutMeModalProps> = ({
                 </div>
               </div>
 
-              {/* 中脊底部：与左翼 "RAW."、右翼 "EYE" 拼合为 "RAW. - 2026 - EYE"（第 5 批逐字浮现：1410ms ~ 1545ms） */}
+              {/* 中脊底部：GPU 高性能计算核心 "C U D A" */}
               <div
                 className="font-sans font-black uppercase text-[#20A89A] leading-[0.84] tracking-[0.01em] flex justify-between px-[3px] pointer-events-none"
                 style={{
-                  fontSize: '84px',
+                  fontSize: '78px',
                   WebkitTextStroke: '1.8px #051F1D',
                   textShadow: centerTealShadow,
                 }}
@@ -381,25 +392,25 @@ export const AboutMeModal: React.FC<AboutMeModalProps> = ({
                   className="inline-block wall-emerge-spine"
                   style={{ animationDelay: '1410ms' }}
                 >
-                  2
+                  C
                 </span>
                 <span
                   className="inline-block wall-emerge-spine"
                   style={{ animationDelay: '1455ms' }}
                 >
-                  0
+                  U
                 </span>
                 <span
                   className="inline-block wall-emerge-spine"
                   style={{ animationDelay: '1500ms' }}
                 >
-                  2
+                  D
                 </span>
                 <span
                   className="inline-block wall-emerge-spine"
                   style={{ animationDelay: '1545ms' }}
                 >
-                  6
+                  A
                 </span>
               </div>
             </div>
@@ -409,81 +420,92 @@ export const AboutMeModal: React.FC<AboutMeModalProps> = ({
                 紧贴中央肖像与中脊右侧折线 (left: centerWidth, top: rightWingDropY)
                -------------------------------------------------------------- */}
             <div
-              className="absolute flex flex-col items-start text-left pl-[5px] select-none pointer-events-none"
+              className="absolute flex flex-col items-start text-left pl-[5px] select-none pointer-events-none whitespace-nowrap"
               style={{
                 left: centerWidth,
                 top: rightWingDropY,
-                width: 350,
+                width: 440,
                 transformOrigin: 'left top',
                 transform: 'skewY(-30deg) scaleX(0.88)',
               }}
             >
-              {/* Row 1: 纯白 3D 立体巨字（第 2 批右翼收尾：570ms） */}
+              {/* Row 1: 纯白 3D 立体巨字（三维与空间流媒体：3D·XR） */}
               <div
                 className="font-sans font-black uppercase text-[#FFFFFF] leading-[0.84] tracking-[-0.03em] wall-emerge-right"
                 style={{
                   animationDelay: '570ms',
-                  fontSize: '88px',
+                  fontSize: '80px',
                   WebkitTextStroke: '1.8px #07090E',
                   textShadow: rightWhiteShadow,
                 }}
               >
-                LAB
+                3D·XR
               </div>
 
-              {/* Row 2: 青绿 3D 立体巨字（第 3 批右侧灵魂主词：780ms） */}
+              {/* Row 2: 青绿 3D 立体主词（SHADER 实时着色与图形学） */}
               <div
-                className="font-sans font-black uppercase text-[#2DD4BF] leading-[0.84] tracking-[-0.04em] wall-emerge-right"
+                className="font-sans font-black uppercase text-[#2DD4BF] leading-[0.86] tracking-[-0.03em] wall-emerge-right"
                 style={{
                   animationDelay: '780ms',
-                  fontSize: '88px',
+                  fontSize: '64px',
                   WebkitTextStroke: '1.8px #051F1D',
                   textShadow: rightTealShadow,
                 }}
               >
-                SOUL
+                SHADER
               </div>
 
-              {/* Row 3 & 4: 纯白与青绿紧凑关键词（第 4 批左右交替浮现：1000ms & 1220ms） */}
+              {/* Rows 3, 4, 5: 高度概括的多模态、三维图形与边缘信号处理技能关键词 */}
               <div
-                className="font-sans font-black uppercase text-[#FFFFFF] leading-[0.94] tracking-[-0.01em] mt-[3px] wall-emerge-right"
+                className="font-sans font-black uppercase text-[#FFFFFF] leading-[1.02] tracking-[-0.01em] mt-[3px] wall-emerge-right"
                 style={{
-                  animationDelay: '1000ms',
-                  fontSize: '36px',
-                  WebkitTextStroke: '1.2px #07090E',
+                  animationDelay: '940ms',
+                  fontSize: '28px',
+                  WebkitTextStroke: '1.1px #07090E',
                   textShadow: build3DWallTextShadow('#080A0F', 0.9, 1.1, 6),
                 }}
               >
-                ·EMOTION
+                ·MULTIMODAL AI
               </div>
               <div
-                className="font-sans font-black uppercase text-[#2DD4BF] leading-[0.94] tracking-[-0.02em] wall-emerge-right"
+                className="font-sans font-black uppercase text-[#2DD4BF] leading-[1.02] tracking-[-0.01em] wall-emerge-right"
                 style={{
-                  animationDelay: '1220ms',
-                  fontSize: '36px',
-                  WebkitTextStroke: '1.2px #051F1D',
+                  animationDelay: '1100ms',
+                  fontSize: '28px',
+                  WebkitTextStroke: '1.1px #051F1D',
                   textShadow: build3DWallTextShadow('#062825', 0.9, 1.1, 6),
                 }}
               >
-                ·LANDSCAPE
+                ·3D GRAPHICS
+              </div>
+              <div
+                className="font-sans font-black uppercase text-[#FFFFFF] leading-[1.02] tracking-[-0.01em] wall-emerge-right"
+                style={{
+                  animationDelay: '1260ms',
+                  fontSize: '28px',
+                  WebkitTextStroke: '1.1px #07090E',
+                  textShadow: build3DWallTextShadow('#080A0F', 0.9, 1.1, 6),
+                }}
+              >
+                ·SIGNAL &amp; EDGE
               </div>
 
-              {/* Row 5: 青绿 3D 立体大字（第 5 批底座右翼：1620ms） */}
+              {/* Row 6: 青绿 3D 立体底座核心框架（TORCH） */}
               <div
                 className="font-sans font-black uppercase text-[#2DD4BF] leading-[0.84] tracking-[-0.03em] mt-[3px] wall-emerge-right"
                 style={{
                   animationDelay: '1620ms',
-                  fontSize: '84px',
+                  fontSize: '74px',
                   WebkitTextStroke: '1.8px #051F1D',
                   textShadow: rightTealShadow,
                 }}
               >
-                EYE
+                TORCH
               </div>
             </div>
 
             {/* --------------------------------------------------------------
-                平面 4：底部等轴测地面平铺纯英文小字（第 6 批逐行渐进浮现：1720ms ~ 2020ms）
+                平面 4：底部等轴测地面平铺纯英文技能栈与联系邮箱（第 6 批逐行渐进浮现）
                -------------------------------------------------------------- */}
             <div
               className="absolute pointer-events-none select-none"
@@ -495,7 +517,7 @@ export const AboutMeModal: React.FC<AboutMeModalProps> = ({
               }}
             >
               <div
-                className="font-sans font-black uppercase text-[#FFFFFF] text-[15px] leading-[1.2] tracking-[0.06em] whitespace-nowrap space-y-[2px]"
+                className="font-sans font-black uppercase text-[#FFFFFF] text-[14px] leading-[1.22] tracking-[0.06em] whitespace-nowrap space-y-[2px]"
                 style={{
                   WebkitTextStroke: '0.8px #07090E',
                   textShadow: floorShadow,
@@ -505,25 +527,25 @@ export const AboutMeModal: React.FC<AboutMeModalProps> = ({
                   className="wall-emerge-floor"
                   style={{ animationDelay: '1720ms' }}
                 >
-                  INDEPENDENT PHOTOGRAPHER
+                  IMAGE ANALYSIS &amp; MACHINE LEARNING · PHOTOGRAPHY
                 </div>
                 <div
                   className="wall-emerge-floor"
                   style={{ animationDelay: '1820ms' }}
                 >
-                  STILLNESS · GEOMETRY · WILDERNESS
+                  PYTORCH · OPENCV · ONNX ·OPENGL · THREE.JS
                 </div>
                 <div
                   className="wall-emerge-floor"
                   style={{ animationDelay: '1920ms' }}
                 >
-                  3X3X3 OPTICAL CUBE ARCHIVE
+                  POINT CLOUD · DIFFUSION · DRL · SENSOR FUSION
                 </div>
                 <div
                   className="text-[#2DD4BF] wall-emerge-floor"
                   style={{ animationDelay: '2020ms' }}
                 >
-                  ORASEAIR@GMAIL.COM
+                  MINGXIFIGGY@OUTLOOK.COM
                 </div>
               </div>
             </div>
