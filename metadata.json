@@ -1,0 +1,6 @@
+{
+  "name": "KAI VANCE — 3D Cyber-Editorial Photography Cube",
+  "description": "An avant-garde single-viewport 3D Rubik's Cube photography portfolio featuring Human, Animal, and Landscape nine-grid series, kinetic full-screen typographic transitions, neon cyberpunk aesthetics, and live CRT television static.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

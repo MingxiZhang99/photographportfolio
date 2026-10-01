@@ -1,0 +1,452 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-display: 'Syne', sans-serif;
+    --font-Editorial: 'Cormorant Garamond', serif;
+    --font-sans: 'Plus Jakarta Sans', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html,
+  body,
+  #root {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background-color: #FFFFFF;
+    color: #090614;
+    font-family: var(--font-sans);
+  }
+}
+
+.font-display {
+  font-family: 'Syne', sans-serif;
+}
+
+.font-editorial {
+  font-family: 'Cormorant Garamond', serif;
+}
+
+.font-mono-tabular {
+  font-family: 'JetBrains Mono', monospace;
+  font-variant-numeric: tabular-nums;
+}
+
+/* 3D Scene & Cube Utilities */
+.scene-perspective {
+  perspective: 1200px;
+  perspective-origin: 50% 48%;
+}
+
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+/* Studio Monochrome Shadow */
+.neon-box-glow {
+  box-shadow:
+    0 12px 32px rgba(5, 6, 10, 0.32),
+    0 2px 8px rgba(0, 0, 0, 0.24),
+    inset 0 1px 1px rgba(255, 255, 255, 0.22);
+}
+
+/* ============================================================================
+   摄像头悬停：1) 镜头首先发出光晕 -> 2) 对应单词不规则频闪投影出现并稳定
+   ============================================================================ */
+
+/* 1. 摄像头镜头光晕率先亮起扩散 */
+@keyframes camera-lens-halo-bloom {
+  0% {
+    opacity: 0;
+    transform: translateZ(18px) scale(0.35);
+  }
+  45% {
+    opacity: 1;
+    transform: translateZ(18px) scale(1.12);
+  }
+  70% {
+    opacity: 0.86;
+    transform: translateZ(18px) scale(0.96);
+  }
+  100% {
+    opacity: 1;
+    transform: translateZ(18px) scale(1);
+  }
+}
+
+.animate-camera-lens-halo {
+  animation: camera-lens-halo-bloom 240ms cubic-bezier(0.22, 1, 0.36, 1)
+    forwards;
+}
+
+/* 2. 投影光束与桌面光晕：镜头发光后紧接着频闪投射并稳定 */
+@keyframes projector-beam-flicker-in {
+  0%,
+  12% {
+    opacity: 0;
+  }
+  18% {
+    opacity: 0.85;
+  }
+  23% {
+    opacity: 0.12;
+  }
+  31% {
+    opacity: 0.95;
+  }
+  37% {
+    opacity: 0.24;
+  }
+  44% {
+    opacity: 0.45;
+  }
+  49% {
+    opacity: 0.08;
+  }
+  58% {
+    opacity: 1;
+  }
+  65% {
+    opacity: 0.38;
+  }
+  73% {
+    opacity: 0.96;
+  }
+  80% {
+    opacity: 0.68;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.animate-projector-beam-flicker {
+  opacity: 0;
+  animation: projector-beam-flicker-in 620ms linear forwards;
+}
+
+/* 3. 对应 3D 单词（HUMAN / ANIMAL / LANDSCAPE）：在镜头发出光晕后，以不规则频闪（刚投影出来不稳定）动效出现，随后完全稳定 */
+@keyframes projector-word-flicker-in {
+  0%,
+  14% {
+    opacity: 0;
+    transform: translate3d(0px, 2px, 0px) scale(0.97);
+    filter: brightness(1.8) blur(3px);
+  }
+  19% {
+    opacity: 0.88;
+    transform: translate3d(-2.5px, 0.5px, 0px) scale(0.995);
+    filter: brightness(1.45) contrast(1.25) blur(0.8px);
+  }
+  24% {
+    opacity: 0.05;
+    transform: translate3d(2px, -1px, 0px) scale(1.004);
+    filter: brightness(0.7) blur(2px);
+  }
+  31% {
+    opacity: 0.96;
+    transform: translate3d(-1px, 0px, 0px) scale(1);
+    filter: brightness(1.3) contrast(1.15) blur(0px);
+  }
+  36% {
+    opacity: 0.14;
+    transform: translate3d(1.5px, 1px, 0px) scale(0.992);
+    filter: brightness(0.85) blur(1.5px);
+  }
+  42% {
+    opacity: 0.64;
+    transform: translate3d(-1.5px, -0.5px, 0px) scale(1.002);
+    filter: brightness(1.25) blur(0.4px);
+  }
+  47% {
+    opacity: 0.04;
+    transform: translate3d(1px, 0px, 0px) scale(0.996);
+    filter: brightness(0.6) blur(2px);
+  }
+  55% {
+    opacity: 1;
+    transform: translate3d(-0.8px, 0.4px, 0px) scale(1.003);
+    filter: brightness(1.22) contrast(1.1) blur(0px);
+  }
+  62% {
+    opacity: 0.22;
+    transform: translate3d(0.8px, -0.4px, 0px) scale(0.998);
+    filter: brightness(0.9) blur(0.8px);
+  }
+  69% {
+    opacity: 0.94;
+    transform: translate3d(0px, 0px, 0px) scale(1);
+    filter: brightness(1.12) blur(0px);
+  }
+  75% {
+    opacity: 0.46;
+    transform: translate3d(-0.5px, 0px, 0px) scale(1);
+    filter: brightness(0.95) blur(0.3px);
+  }
+  82% {
+    opacity: 1;
+    transform: translate3d(0px, 0px, 0px) scale(1);
+    filter: brightness(1.06) blur(0px);
+  }
+  87% {
+    opacity: 0.76;
+    transform: translate3d(0px, 0px, 0px) scale(1);
+    filter: brightness(1) blur(0px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0px, 0px, 0px) scale(1);
+    filter: brightness(1) contrast(1) blur(0px);
+  }
+}
+
+.animate-projector-word-flicker {
+  opacity: 0;
+  animation: projector-word-flicker-in 650ms linear forwards;
+}
+
+/* 桌面正下方 3D 白色立体字悬浮抬升并冲出屏幕的视觉冲击动效（纯 GPU 硬件合成 transform + opacity，0 滤镜重绘，满帧丝滑） */
+@keyframes tabletop-word-rush-out {
+  0% {
+    transform: translate3d(var(--start-x, 0px), var(--start-y, 196px), 0px)
+      rotateZ(var(--start-rot, 0deg)) scale(0.46);
+    opacity: 1;
+  }
+  34% {
+    transform: translate3d(
+        calc(var(--start-x, 0px) * 0.15),
+        calc(var(--start-y, 196px) * 0.18 - 28px),
+        160px
+      )
+      rotateZ(0deg) rotateX(14deg) scale(1.18);
+    opacity: 1;
+  }
+  58% {
+    transform: translate3d(0px, -18px, 340px) rotateZ(0deg) rotateX(8deg)
+      scale(1.72);
+    opacity: 1;
+  }
+  100% {
+    transform: translate3d(0px, -10px, 960px) rotateZ(0deg) rotateX(0deg)
+      scale(9.5);
+    opacity: 0;
+  }
+}
+
+.animate-tabletop-word-rush {
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  animation: tabletop-word-rush-out 0.78s cubic-bezier(0.55, 0.02, 0.18, 1)
+    forwards;
+}
+
+@keyframes plateEnterRight {
+  0% {
+    opacity: 0;
+    transform: translateX(36px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes plateEnterLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-36px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+/* ============================================================================
+   ABOUT ME 3D 立体文字墙：分批、逐词艺术渐进浮现动效 (Progressive Wave Emergence)
+   ============================================================================ */
+
+/* 中央 3D 个人肖像相框：从空间深处破雾对焦浮现 */
+@keyframes wall-portrait-emerge {
+  0% {
+    opacity: 0;
+    transform: translate3d(0px, 22px, -75px) scale(0.78);
+    filter: blur(12px) brightness(1.45);
+  }
+  65% {
+    opacity: 1;
+    transform: translate3d(0px, -3px, 8px) scale(1.03);
+    filter: blur(0px) brightness(1.08);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0px, 0px, 0px) scale(1);
+    filter: blur(0px) brightness(1);
+  }
+}
+
+/* 左翼 (/) 立体关键词：沿等轴测左翼法线方向自内向外浮现舒展 */
+@keyframes wall-keyword-left-emerge {
+  0% {
+    opacity: 0;
+    transform: translate3d(34px, 18px, -60px) scale(0.82);
+    filter: blur(10px);
+  }
+  68% {
+    opacity: 1;
+    transform: translate3d(-4px, -2px, 6px) scale(1.03);
+    filter: blur(0px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0px, 0px, 0px) scale(1);
+    filter: blur(0px);
+  }
+}
+
+/* 中脊 (\) 立体字符：沿中央折面自纵深向前逐字阶梯浮现 */
+@keyframes wall-keyword-spine-emerge {
+  0% {
+    opacity: 0;
+    transform: translate3d(-14px, -24px, -65px) scale(0.76);
+    filter: blur(10px);
+  }
+  68% {
+    opacity: 1;
+    transform: translate3d(2px, 3px, 6px) scale(1.04);
+    filter: blur(0px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0px, 0px, 0px) scale(1);
+    filter: blur(0px);
+  }
+}
+
+/* 右翼 (/) 立体关键词：沿等轴测右翼方向自中脊向右外侧舒展浮现 */
+@keyframes wall-keyword-right-emerge {
+  0% {
+    opacity: 0;
+    transform: translate3d(-34px, 18px, -60px) scale(0.82);
+    filter: blur(10px);
+  }
+  68% {
+    opacity: 1;
+    transform: translate3d(4px, -2px, 6px) scale(1.03);
+    filter: blur(0px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0px, 0px, 0px) scale(1);
+    filter: blur(0px);
+  }
+}
+
+/* 顶部屋顶等轴测关键词：自高处凝结落定 */
+@keyframes wall-keyword-roof-emerge {
+  0% {
+    opacity: 0;
+    transform: translate3d(16px, -28px, -50px) scale(0.84);
+    filter: blur(9px);
+  }
+  70% {
+    opacity: 1;
+    transform: translate3d(-2px, 3px, 4px) scale(1.02);
+    filter: blur(0px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0px, 0px, 0px) scale(1);
+    filter: blur(0px);
+  }
+}
+
+/* 底部地面等轴测独立宣言：逐行涟漪式浮现 */
+@keyframes wall-keyword-floor-emerge {
+  0% {
+    opacity: 0;
+    transform: translate3d(-20px, 16px, -40px) scale(0.88);
+    filter: blur(7px);
+  }
+  72% {
+    opacity: 1;
+    transform: translate3d(2px, -1px, 2px) scale(1.01);
+    filter: blur(0px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0px, 0px, 0px) scale(1);
+    filter: blur(0px);
+  }
+}
+
+.wall-emerge-portrait {
+  opacity: 0;
+  animation: wall-portrait-emerge 760ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.wall-emerge-left {
+  opacity: 0;
+  animation: wall-keyword-left-emerge 700ms cubic-bezier(0.22, 1, 0.36, 1)
+    forwards;
+}
+
+.wall-emerge-spine {
+  opacity: 0;
+  animation: wall-keyword-spine-emerge 660ms cubic-bezier(0.22, 1, 0.36, 1)
+    forwards;
+}
+
+.wall-emerge-right {
+  opacity: 0;
+  animation: wall-keyword-right-emerge 700ms cubic-bezier(0.22, 1, 0.36, 1)
+    forwards;
+}
+
+.wall-emerge-roof {
+  opacity: 0;
+  animation: wall-keyword-roof-emerge 680ms cubic-bezier(0.22, 1, 0.36, 1)
+    forwards;
+}
+
+.wall-emerge-floor {
+  opacity: 0;
+  animation: wall-keyword-floor-emerge 640ms cubic-bezier(0.22, 1, 0.36, 1)
+    forwards;
+}
+
+/* ============================================================================
+   3D 立体多折页风琴画廊装置 (18-Panel 3D Concertina / Leporello Folded Gallery)
+   纯 GPU 合成层展开动效
+   ============================================================================ */
+@keyframes concertina-fold-emerge {
+  0% {
+    opacity: 0;
+    transform: translate3d(0px, 26px, -180px) rotateY(64deg) scaleX(0.52);
+  }
+  65% {
+    opacity: 1;
+    transform: translate3d(0px, -2px, 12px) rotateY(-4deg) scaleX(1.02);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0px, 0px, 0px) rotateY(0deg) scaleX(1);
+  }
+}
+
+.animate-concertina-fold-in {
+  opacity: 0;
+  will-change: transform, opacity;
+  animation: concertina-fold-emerge 620ms cubic-bezier(0.22, 1, 0.36, 1)
+    forwards;
+}
+
